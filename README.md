@@ -115,7 +115,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
     methods: {
 
-        ..mapActions("users", ["addNewUser"])
+        ...mapActions("users", ["addNewUser"])
 
         addUser() {
         const newUser = {
