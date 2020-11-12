@@ -32,6 +32,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 1. в state  указываем данные, которое хотим получать/изменять
 2. в getters пишем функцию для получения данных из store
 Например:
+
     usersList: ({ List }) => Object.values(List)
     usersList - имя геттера,
     List - деструктурированный state 
@@ -40,6 +41,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 3. Создаём мутацию(mutations)(изменение данных в store).
 Например:
+
     ADD_USER(state, user) {
         //  Vue.set("куда", "под каким ключем", "что записываем")
         Vue.set(state.List, user.id, user);
@@ -54,6 +56,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
         чтобы не писать context.commit("ADD_USER"); :)
         user - это аргумент, данные, которые приходят из компонентов
         при вызове действия
+
         addNewUser({ commit }, user) {
             // описываем user
             const newUser = {
@@ -72,9 +75,11 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 7. Вешаем событие, по которому будет происходить обращение
     Например:
+
         <button @click="addUser">Add user</button>
 8. Импортируем actions.
-    Например: 
+    Например:
+
         import { mapActions } from "vuex";
 
 9. Вызываем action в методах.
@@ -82,7 +87,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     ...mapActions("users", ["addNewUser"])
 
 10. Описываем метод.
-        Например: 
+        Например:
+
             addUser() {
             const newUser = {
                 name: "Dima",
@@ -97,9 +103,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     import { mapGetters } from 'vuex'
 
 12. и передаём их в вычисляемые свойства
-    computed: {
-        mapGetters('name store in modules', ['nameGetter', 'nameGetter2', ...])
 
-        ...mapGetters('users', ['usersList'])
-    }
+        computed: {
+            mapGetters('name store in modules', ['nameGetter', 'nameGetter2', ...])
+
+            ...mapGetters('users', ['usersList'])
+        }
 
