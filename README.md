@@ -27,7 +27,22 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 Последовательность действий:
 
-Предполагается, что store уже создан!!!
+#### Начальное состояние:
+    import Vue from "vue"; //Чтобы использовать функции vue в store
+
+    const usersStore = {
+        namespaced: true,
+
+        state: {},
+
+        getters: {},
+
+        mutations: {},
+
+        actions: {},
+    }
+
+    export default usersStore;
 
 #### 1. в state  указываем данные, которые хотим получать/изменять
 
