@@ -29,8 +29,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 Предполагается, что store уже создан!!!
 
-1. в state  указываем данные, которое хотим получать/изменять
-2. в getters пишем функцию для получения данных из store
+#### 1. в state  указываем данные, которое хотим получать/изменять
+#### 2. в getters пишем функцию для получения данных из store
 Например:
 
     usersList: ({ List }) => Object.values(List)
@@ -39,7 +39,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     Object.values(List) - соответственно способ получения данных
     
 
-3. Создаём мутацию(mutations)(изменение данных в store).
+#### 3. Создаём мутацию(mutations)(изменение данных в store).
 Например:
 
     ADD_USER(state, user) {
@@ -50,7 +50,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     ADD_USER - имя мутации,
     user - данные, которые меняем
 
-4. Создаём действия(actions), которые вызывают мутации. Если асинхронных данных нет, то в принципе можно обойтись и без них.
+#### 4. Создаём действия(actions), которые вызывают мутации. Если асинхронных данных нет, то в принципе можно обойтись и без них.
 Например: 
         Деструктурируем и вытягиваем функцию commit,
         чтобы не писать context.commit("ADD_USER"); :)
@@ -69,24 +69,24 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
             commit("ADD_USER", newUser);
         }
 
-5. НЕ забываем экспортировать store(export default usersStore)
+#### 5. НЕ забываем экспортировать store(export default usersStore)
 
-6. Далее, идём в компонент, который будет обращаться к хранилищу.
+#### 6. Далее, идём в компонент, который будет обращаться к хранилищу.
 
-7. Вешаем событие, по которому будет происходить обращение
+#### 7. Вешаем событие, по которому будет происходить обращение
     Например:
 
         <button @click="addUser">Add user</button>
-8. Импортируем actions.
+#### 8. Импортируем actions.
     Например:
 
         import { mapActions } from "vuex";
 
-9. Вызываем action в методах.
+#### 9. Вызываем action в методах.
       //users - имя стора, addNewUser - имя action    
     ...mapActions("users", ["addNewUser"])
 
-10. Описываем метод.
+#### 10. Описываем метод.
         Например:
 
             addUser() {
@@ -99,10 +99,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
             this.addNewUser(newUser);
             }
 
-11. Далее в компоненте, в котором необходимо отобразить изменения, импортируем геттеры.
+#### 11. Далее в компоненте, в котором необходимо отобразить изменения, импортируем геттеры.
     import { mapGetters } from 'vuex'
 
-12. и передаём их в вычисляемые свойства
+#### 12. и передаём их в вычисляемые свойства
 
         computed: {
             mapGetters('name store in modules', ['nameGetter', 'nameGetter2', ...])
